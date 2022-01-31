@@ -39,7 +39,7 @@ class MovieManagerTest {
 
 
     @Test
-    public void shouldRemoveByIDDownloadedMovies() {
+    public void shouldRemoveByIdDownloadedMovies() {
         MovieManager manager = new MovieManager();
         manager.download(first);
         manager.download(second);
@@ -94,7 +94,6 @@ class MovieManagerTest {
         manager.download(fifth);
 
 
-
         Movie[] actual = manager.lastMovies(limit1);
         Movie[] expected = new Movie[]{fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
@@ -127,7 +126,6 @@ class MovieManagerTest {
         MovieManager manager = new MovieManager();
         manager.download(first);
         manager.download(second);
-
 
 
         Movie[] actual = manager.lastMovies(limit2);
