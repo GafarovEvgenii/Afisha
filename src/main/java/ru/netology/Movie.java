@@ -13,7 +13,7 @@ public class Movie {
     private String image;
     private String name;
     private String genre;
-    private int amountMovies;
+    private int limit = 10;
 
     public Movie(int id, String image, String name, String genre) {
         this.id = id;
@@ -22,11 +22,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public Movie(int amountMovies) {
-        this.amountMovies = amountMovies;
+    public Movie(int limit) {
+        this.limit = limit;
     }
-}
 
+}
 
 
 

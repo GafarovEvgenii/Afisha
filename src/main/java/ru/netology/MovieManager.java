@@ -2,9 +2,7 @@ package ru.netology;
 
 public class MovieManager {
 
-
     Movie[] items = new Movie[0];
-
 
     public void download(Movie item) {
 
@@ -30,9 +28,7 @@ public class MovieManager {
     }
 
 
-    public Movie[] lastMovies(Movie amountMovies) {
-        int limit = 0;
-        limit = amountMovies.getAmountMovies();
+    public Movie[] lastMovies(int limit) {
         if (items.length > limit) {
             Movie[] result = new Movie[limit];
             for (int i = 0; i < result.length; i++) {

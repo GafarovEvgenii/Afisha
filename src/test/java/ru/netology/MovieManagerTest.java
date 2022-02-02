@@ -18,8 +18,8 @@ class MovieManagerTest {
     private Movie tenth = new Movie(10, "poster-moana", "Moana", "Animation");
     private Movie eleventh = new Movie(11, "poster-paddington", "Paddington", "Comedy");
     private Movie twelfth = new Movie(12, "poster-shining", "Siyanie", "Horror");
-    private Movie limit1 = new Movie(10);
-    private Movie limit2 = new Movie(3);
+
+
 
 
     @Test
@@ -39,7 +39,7 @@ class MovieManagerTest {
 
 
     @Test
-    public void shouldRemoveByIdDownloadedMovies() {
+    public void shouldRemoveByIDDownloadedMovies() {
         MovieManager manager = new MovieManager();
         manager.download(first);
         manager.download(second);
@@ -78,8 +78,8 @@ class MovieManagerTest {
         manager.download(eleventh);
         manager.download(twelfth);
 
-
-        Movie[] actual = manager.lastMovies(limit1);
+        Movie movie = new Movie();
+        Movie[] actual = manager.lastMovies(movie.getLimit());
         Movie[] expected = new Movie[]{twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third};
         assertArrayEquals(expected, actual);
     }
@@ -94,7 +94,8 @@ class MovieManagerTest {
         manager.download(fifth);
 
 
-        Movie[] actual = manager.lastMovies(limit1);
+
+        Movie[] actual = manager.lastMovies(8);
         Movie[] expected = new Movie[]{fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
@@ -116,7 +117,7 @@ class MovieManagerTest {
         manager.download(twelfth);
 
 
-        Movie[] actual = manager.lastMovies(limit2);
+        Movie[] actual = manager.lastMovies(3);
         Movie[] expected = new Movie[]{twelfth, eleventh, tenth,};
         assertArrayEquals(expected, actual);
     }
@@ -128,8 +129,9 @@ class MovieManagerTest {
         manager.download(second);
 
 
-        Movie[] actual = manager.lastMovies(limit2);
-        Movie[] expected = new Movie[]{second, first};
+
+        Movie[] actual = manager.lastMovies(1);
+        Movie[] expected = new Movie[]{second};
         assertArrayEquals(expected, actual);
     }
 }
